@@ -1,6 +1,7 @@
 import json
 import copy as c
 import os
+from os import path
 import sys
 import Interface
 
@@ -21,16 +22,21 @@ class Directory():
         """ 
         
         # Change path based on whether running in .exe or .py
-        if getattr(sys, 'frozen', False):
-            exe_path = sys.executable
-            exe_dir = os.path.dirname(exe_path)
-            parts = exe_dir.split(os.sep)
+        try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+        except Exception:
+            base_path = os.path.abspath(".")
 
-            parts[-1] = "Internal"
-            base_path = os.path.join(*parts)
-        else:
-            base_path = os.path.dirname(os.path.abspath(__file__))
-        self.storage = os.path.join(base_path, "storage.JSON")
+        os.path.join(base_path, "Internal\\storage.JSON")
+        path.abspath(path.join(path.dirname(__file__), 'storage.JSON'))
+        self.storage = os.path.join(
+        os.environ.get(
+            "_MEIPASS2",
+            os.path.abspath(".")
+        ),
+        "Internal\\storage.JSON"
+    )
         self.data = self.get_data()
         self.navigator = navigator
         self.look_up = dict()
