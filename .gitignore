@@ -1,0 +1,14 @@
+__pychache__/
+
+build/
+
+dist/
+
+Include/
+
+Scripts/
+
+main.spec
+
+pyvenv.cfg
+
