@@ -60,7 +60,10 @@ Before you begin, ensure you have the following software installed:
    pip install -r requirements.txt
 
 4. **Run main.py**<br>
-    pyton main.py<bt>
+   In the terminal run
+   ```bash
+    pyton main.py
+   ```
     Or run main.py in your IDE
    
 6. **Get .exe**<br>
