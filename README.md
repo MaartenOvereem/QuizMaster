@@ -49,30 +49,33 @@ Before you begin, ensure you have the following software installed:
 - **Pip**: Python's package manager (usually comes with Python installation).
 
 ### Installation Steps
-1. **Clone the Repository**  
-   First, clone this repository to your local machine by running:
-   ```bash
+1. **Clone the Repository**<br>  
+   First, clone this repository to your local machine by running:<br>
+   ```bash<br>
    git clone https://github.com/your-username/quizmaster.git
 
-2. **Install packages**
-   Install the required packages by running:
+2. **Install packages**<br>
+   Install the required packages by running:<bt>
+   ```bash
    pip install -r requirements.txt
 
-4. **Run main.py**
-    pyton main.py
+4. **Run main.py**<br>
+    pyton main.py<bt>
     Or run main.py in your IDE
    
-6. **Get .exe**
-   When pyinstaller is installed, see requirement.txt for required version
-   Run following command in the terminal:
+6. **Get .exe**<br>
+   When pyinstaller is installed, see requirement.txt for required version<br>
+   Run following command in the terminal:<br>
+   ```bash
    pyinstaller --onefile --noconsole main.py
+   ```
    This will create a dist folder with main.exe inside, which can be used to run QuizMaster from your desktop
 
 ## When Contributing
 
 Be aware that both the Tkinter and Watchdog packages rely on multithreading to run their operations, which can easily interfere with the execution of your code if not managed properly.
 
-Tkinter runs its main GUI application on the main thread, while pop-ups and similar components may run on separate subthreads.  
+Tkinter runs its main GUI application on the main thread, while pop-ups and similar components may run on separate subthreads.<br>  
 Watchdog performs its monitoring on a dedicated subthread.
 
 If not handled carefully, the subthreads from these packages can become intertwined, potentially causing your program to stop running.
