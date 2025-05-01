@@ -52,7 +52,7 @@ Before you begin, ensure you have the following software installed:
 1. **Clone the Repository**<br>  
    First, clone this repository to your local machine by running:<br>
    ```bash<br>
-   git clone https://github.com/your-username/quizmaster.git
+   git clone https://github.com/MaartenOvereem/quizmaster.git
 
 2. **Install packages**<br>
    Install the required packages by running:<bt>
