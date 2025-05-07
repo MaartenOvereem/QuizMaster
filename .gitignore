@@ -12,5 +12,9 @@ Lib/
 
 pyvenv.cfg
 
-.gitignore
+Incoming/__pychache__/
+
+Interface/__pychache__/
+
+Internal/__pychache__/
 
