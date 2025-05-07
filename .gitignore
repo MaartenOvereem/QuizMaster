@@ -8,7 +8,9 @@ Include/
 
 Scripts/
 
-main.spec
+Lib/
 
 pyvenv.cfg
+
+.gitignore
 

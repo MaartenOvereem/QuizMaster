@@ -21,22 +21,16 @@ class Directory():
         alongside a dictionary used to store the combination of iid and item names.
         """ 
         
-        # Change path based on whether running in .exe or .py
-        try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        if hasattr(sys, '_MEIPASS'):
             base_path = sys._MEIPASS
-        except Exception:
-            base_path = os.path.abspath(".")
-
-        os.path.join(base_path, "Internal\\storage.JSON")
-        path.abspath(path.join(path.dirname(__file__), 'storage.JSON'))
-        self.storage = os.path.join(
-        os.environ.get(
-            "_MEIPASS2",
-            os.path.abspath(".")
-        ),
-        "Internal\\storage.JSON"
-    )
+            print("Running from .exe")
+            print(base_path)
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+            base_path = base_path[:len(base_path) - 8]
+        print(base_path)
+        self.storage = path.join(base_path, 'Internal\\storage.JSON')
+        print(self.storage)
         self.data = self.get_data()
         self.navigator = navigator
         self.look_up = dict()
