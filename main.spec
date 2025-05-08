@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('Internal\\storage.JSON', 'Internal')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

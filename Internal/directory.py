@@ -21,16 +21,24 @@ class Directory():
         alongside a dictionary used to store the combination of iid and item names.
         """ 
         
-        if hasattr(sys, '_MEIPASS'):
-            base_path = sys._MEIPASS
-            print("Running from .exe")
-            print(base_path)
-        else:
-            base_path = os.path.dirname(os.path.abspath(__file__))
-            base_path = base_path[:len(base_path) - 8]
-        print(base_path)
-        self.storage = path.join(base_path, 'Internal\\storage.JSON')
-        print(self.storage)
+        app_name = "QuizMaster" 
+        appdata_folder = os.path.join(os.environ.get('APPDATA'), app_name)
+        os.makedirs(appdata_folder, exist_ok=True)
+
+        self.storage = os.path.join(appdata_folder, 'storage.JSON')
+
+        if not os.path.exists(self.storage):
+            default_data = {
+                "To_be_scanned": "",
+                "Directory": {
+                    "Map": {
+                        "Set": []
+                    }
+                }
+            }
+            with open(self.storage, 'w') as f:
+                json.dump(default_data, f, indent=4)
+            print(f"Initialized storage at {self.storage}")
         self.data = self.get_data()
         self.navigator = navigator
         self.look_up = dict()
