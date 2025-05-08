@@ -75,6 +75,7 @@ Before you begin, ensure you have the following software installed:
    pyinstaller --onefile --noconsole main.py
    ```
    This will create a dist folder with main.exe inside, which can be used to run QuizMaster from your desktop<br>
+   Conversely you could also download the main.exe file from the dist folder<br>
    Note that the .exe file will be unsigned, meaning anti-virus software could detect it as malware<br>
    This is however a false positive
 
