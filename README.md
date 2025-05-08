@@ -18,6 +18,8 @@ The Internal module is responsible for managing both the stored screenshots and 
 
 Each question or answer can consist of multiple images. This is especially useful when dealing with extensive content, such as detailed explanations or derivations. You can also store pre-existing images (not just screenshots) directly through the Internal module.
 
+Please be aware that in order to ensure the program can save images when bundled up into a .exe file, the program creates a new folder inside the Microsoft "AppData" folder where a new file is stored.
+
 **Interface module**<br>
 The Interface module consists of a Tkinter-based GUI, allowing for seamless user interaction with both the Internal and Incoming modules. Additionally, it manages communication between these modules behind the scenes.
 
@@ -62,7 +64,7 @@ Before you begin, ensure you have the following software installed:
 4. **Run main.py**<br>
    In the terminal run
    ```bash
-    pyton main.py
+    python main.py
    ```
     Or run main.py in your IDE
    
@@ -70,7 +72,7 @@ Before you begin, ensure you have the following software installed:
    When pyinstaller is installed, see requirement.txt for required version<br>
    Run following command in the terminal:<br>
    ```bash
-   pyinstaller main.spec
+   pyinstaller --onefile --noconsole main.py
    ```
    This will create a dist folder with main.exe inside, which can be used to run QuizMaster from your desktop<br>
    Note that the .exe file will be unsigned, meaning anti-virus software could detect it as malware<br>
